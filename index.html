@@ -5,24 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PENCOCRE - Préstamos personales rápidos y seguros. Obtén tu préstamo en minutos con las mejores tasas del mercado.">
     <title>PENCOCRE - Préstamos Personales Rápidos y Seguros</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome para iconos -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos CSS Externos -->
+    <link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
 </head>
 <body>
-    <!-- HEADER / NAVEGACIÓN -->
+    <!-- HEADER -->
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav-logo">
-                <img src="logo.png" alt="PENCOCRE Logo" class="logo-img" onerror="this.style.display='none'">
                 <span class="logo-text">PENCOCRE</span>
             </div>
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
-                    <li class="nav-item"><a href="#servicios" class="nav-link">Servicios</a></li>
                     <li class="nav-item"><a href="#calculadora" class="nav-link">Calculadora</a></li>
-                    <li class="nav-item"><a href="#beneficios" class="nav-link">Beneficios</a></li>
                     <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
                 </ul>
             </div>
@@ -32,7 +41,6 @@
         </nav>
     </header>
 
-  
     <!-- HERO SECTION -->
     <section class="hero" id="inicio">
         <div class="hero-container container">
@@ -45,9 +53,13 @@
                     Obtén el dinero que necesitas en minutos. Sin trámites complicados, 
                     con las mejores tasas del mercado y atención personalizada.
                 </p>
+                <p class="hero-description">
+                    La información y el trámite se realiza vía WhatsApp 
+                                    CONTACTANOS
+                </p>
                 <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary btn-large">
-                        <i class="fas fa-hand-holding-usd"></i> Solicitar Ahora
+                    <a href="#calculadora" class="btn btn-primary btn-large">
+                        <i class="fas fa-calculator"></i> Cotizar Ahora
                     </a>
                     <a href="https://wa.me/525512345678" class="btn btn-secondary btn-large" target="_blank">
                         <i class="fab fa-whatsapp"></i> WhatsApp
@@ -66,22 +78,22 @@
                     </div>
                     <div class="stat-item">
                         <i class="fas fa-percentage"></i>
-                        <span class="stat-number">Desde 1.5%</span>
-                        <span class="stat-label">Tasa Mensual</span>
+                        <span class="stat-number">Desde 9.0%</span>
+                        <span class="stat-label">Distribuido en 16 semanas</span>
                     </div>
                 </div>
             </div>
 
             <!-- LOGO DE PENCOCRE -->
             <div class="hero-logo-container">
-                <!-- Opción 1: Logo como imagen -->
+                <!-- Opción 1: Logo como imagen (busca pencocre-logo.png en la carpeta) -->
                 <img src="pencocre-logo.png" 
                      alt="PENCOCRE S.A.S DE C.V." 
                      class="hero-logo"
-                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                     onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
                 
-                <!-- Opción 2: Logo Fallback en CSS (si la imagen no carga) -->
-                <div class="hero-logo-fallback">
+                <!-- Opción 2: Logo Fallback en CSS (se muestra si la imagen no carga) -->
+                <div id="logo-fallback" class="hero-logo-fallback" style="display: none;">
                     <div class="logo-circles">
                         <span class="circle circle-cyan"></span>
                         <span class="circle circle-green"></span>
@@ -97,6 +109,19 @@
                         <span class="logo-subtitle">S.A.S DE C.V.</span>
                     </div>
                 </div>
+                <!-- Script para activar el fallback inmediatamente si no hay imagen (para la demo) -->
+                <script>
+                    // Forzar fallback visualmente para la demo ya que no hay imagen real
+                    document.addEventListener("DOMContentLoaded", function() {
+                         const img = document.querySelector('.hero-logo');
+                         const fallback = document.getElementById('logo-fallback');
+                         if(img && fallback) {
+                             // Si estamos en un entorno donde la imagen seguro falla, mostramos fallback
+                             img.style.display = 'none';
+                             fallback.style.display = 'flex';
+                         }
+                    });
+                </script>
             </div>
         </div>
     </section>
@@ -106,45 +131,107 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Calcula tu Préstamo</h2>
-                <p class="section-subtitle">Descubre cuánto pagarías mensualmente</p>
+                <p class="section-subtitle">Descubre cuánto pagarías semanalmente</p>
             </div>
+            
+            <div class="info-box">
+                <h3 style="color: #2e7d32; margin-bottom: 15px;">📋 Condiciones del Préstamo</h3>
+                <div class="conditions-grid">
+                    <div>
+                        <strong style="color: #1b5e20;">💰 Costo:</strong><br>
+                        $90 por cada $1,000
+                    </div>
+                    <div>
+                        <strong style="color: #1b5e20;">🔒 Base:</strong><br>
+                        $100 por cada $1,000
+                    </div>
+                    <div>
+                        <strong style="color: #1b5e20;">⚠️ Mora:</strong><br>
+                        $50 por cada $1,000
+                    </div>
+                    <div>
+                        <strong style="color: #1b5e20;">📅 Plazo:</strong><br>
+                        16 semanas (4 meses)
+                    </div>
+                </div>
+            </div>
+
             <div class="calculator-container">
                 <div class="calculator-form">
                     <div class="form-group">
                         <label for="amount">Monto del Préstamo</label>
-                        <input type="range" id="amount" min="5000" max="100000" step="1000" value="25000">
-                        <div class="range-value">$<span id="amount-value">25,000</span> MXN</div>
+                        <input type="range" id="amount" min="5000" max="15000" step="100" value="10000">
+                        <div class="range-value">$<span id="amount-value">10,000</span> MXN</div>
                     </div>
-                    <div class="form-group">
-                        <label for="term">Plazo (meses)</label>
-                        <input type="range" id="term" min="6" max="48" step="6" value="12">
-                        <div class="range-value"><span id="term-value">12</span> meses</div>
+                    
+                    <div class="info-note">
+                        <strong style="color: #856404;">ℹ️ Información:</strong>
+                        <p style="color: #856404; margin: 5px 0 0 0; font-size: 0.95rem;">
+                            Monto mínimo: $5,000 | Monto máximo: $15,000<br>
+                            Plazo fijo: 16 pagos semanales (4 meses)
+                        </p>
                     </div>
-                    <div class="form-group">
-                        <label for="rate">Tasa de Interés Mensual (%)</label>
-                        <input type="range" id="rate" min="1.5" max="5" step="0.5" value="2.5">
-                        <div class="range-value"><span id="rate-value">2.5</span>%</div>
-                    </div>
-                    <button class="btn btn-primary btn-block" id="calculate-btn">
-                        <i class="fas fa-calculator"></i> Calcular
+
+                    <button class="btn btn-primary btn-large" id="calculate-btn" style="width: 100%;">
+                        <i class="fas fa-calculator"></i> Calcular Pagos
                     </button>
                 </div>
+                
                 <div class="calculator-result" id="result">
                     <div class="result-card">
                         <h3>Resumen de tu Préstamo</h3>
-                        <div class="result-item">
-                            <span class="result-label">Pago Mensual:</span>
-                            <span class="result-value" id="monthly-payment">$0</span>
+                        
+                        <div class="result-section">
+                            <h4 class="result-section-title">
+                                💰 Costos del Préstamo
+                            </h4>
+                            <div class="result-item">
+                                <span class="result-label">Monto Solicitado:</span>
+                                <span class="result-value" id="loan-amount">$10,000.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Costo del Préstamo:</span>
+                                <span class="result-value text-yellow" id="loan-cost">$900.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monto de Base:</span>
+                                <span class="result-value text-teal" id="guarantee">$1,000.00</span>
+                            </div>
+                            <div class="result-item total-item">
+                                <span class="result-label"><strong>Total a Pagar:</strong></span>
+                                <span class="result-value" style="font-size: 1.8rem;" id="total-payment">$11,900.00</span>
+                            </div>
                         </div>
-                        <div class="result-item">
-                            <span class="result-label">Total a Pagar:</span>
-                            <span class="result-value" id="total-payment">$0</span>
+
+                        <div class="result-section" style="margin-top: 25px;">
+                            <h4 class="result-section-title">
+                                📅 Plan de Pagos
+                            </h4>
+                            <div class="result-item">
+                                <span class="result-label">Pago Semanal:</span>
+                                <span class="result-value" style="font-size: 2rem; color: #ffeb3b;" id="weekly-payment">$743.75</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Número de Pagos:</span>
+                                <span class="result-value">16 semanas</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Duración Total:</span>
+                                <span class="result-value">4 meses</span>
+                            </div>
                         </div>
-                        <div class="result-item">
-                            <span class="result-label">Total de Intereses:</span>
-                            <span class="result-value" id="total-interest">$0</span>
+
+                        <div class="result-section warning-section">
+                            <h4 style="color: #ffeb3b; margin-bottom: 10px; font-size: 1rem;">
+                                ⚠️ En caso de mora
+                            </h4>
+                            <div class="result-item" style="border: none;">
+                                <span class="result-label">Cargo por pago atrasado:</span>
+                                <span class="result-value" id="late-fee">$500.00</span>
+                            </div>
                         </div>
-                        <a href="#formulario" class="btn btn-success btn-block">
+
+                        <a href="#contacto" class="btn btn-success btn-block btn-large" style="margin-top: 25px; width: 100%; text-decoration: none;">
                             <i class="fas fa-check-circle"></i> Solicitar este Préstamo
                         </a>
                     </div>
@@ -152,8 +239,7 @@
             </div>
         </div>
     </section>
-
-    <!-- BENEFICIOS -->
+<!-- BENEFICIOS -->
     <section class="benefits" id="beneficios">
         <div class="container">
             <div class="section-header">
@@ -180,21 +266,21 @@
                         <i class="fas fa-hand-holding-heart"></i>
                     </div>
                     <h3>Sin Aval</h3>
-                    <p>No necesitas aval ni garantías. Solo tu historial crediticio.</p>
+                    <p>No necesitas aval ni garantías.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Mejores Tasas</h3>
-                    <p>Tasas competitivas desde 1.5% mensual. Sin comisiones ocultas.</p>
+                    <p>Tasas competitivas del 9% por 16 semanas.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>100% Digital</h3>
-                    <p>Todo el proceso desde tu celular o computadora. Sin salir de casa.</p>
+                    <p>Todo el proceso desde tu celular.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -206,8 +292,7 @@
             </div>
         </div>
     </section>
-
-    <!-- PROCESO -->
+<!-- PROCESO -->
     <section class="process">
         <div class="container">
             <div class="section-header">
@@ -243,124 +328,35 @@
         </div>
     </section>
 
-    <!-- FORMULARIO DE CONTACTO -->
-    <section class="contact-form" id="formulario">
+    <!-- SECCIÓN DE CONTACTO SIMPLE -->
+    <section style="padding: 80px 0; background: #F5FAF9;" id="contacto">
         <div class="container">
-            <div class="form-wrapper">
-                <div class="form-header">
-                    <h2>Solicita tu Préstamo Ahora</h2>
-                    <p>Completa el formulario y un asesor te contactará en menos de 15 minutos</p>
-                </div>
-                <form class="form" id="contact-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Nombre Completo *</label>
-                            <input type="text" id="name" name="name" required placeholder="Juan Pérez García">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico *</label>
-                            <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Teléfono *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="55 1234 5678">
-                        </div>
-                        <div class="form-group">
-                            <label for="loan-amount">Monto Solicitado *</label>
-                            <select id="loan-amount" name="loan-amount" required>
-                                <option value="">Selecciona un monto</option>
-                                <option value="5000-10000">$5,000 - $10,000</option>
-                                <option value="10000-25000">$10,000 - $25,000</option>
-                                <option value="25000-50000">$25,000 - $50,000</option>
-                                <option value="50000-100000">$50,000 - $100,000</option>
-                                <option value="100000+">Más de $100,000</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="purpose">¿Para qué necesitas el préstamo?</label>
-                        <select id="purpose" name="purpose" required>
-                            <option value="">Selecciona una opción</option>
-                            <option value="personal">Gastos Personales</option>
-                            <option value="medico">Gastos Médicos</option>
-                            <option value="educacion">Educación</option>
-                            <option value="negocio">Negocio</option>
-                            <option value="vivienda">Vivienda</option>
-                            <option value="auto">Automóvil</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje Adicional (Opcional)</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Cuéntanos más sobre tu necesidad..."></textarea>
-                    </div>
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms">Acepto los <a href="#" class="link">Términos y Condiciones</a> y el <a href="#" class="link">Aviso de Privacidad</a></label>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-large">
-                        <i class="fas fa-paper-plane"></i> Enviar Solicitud
-                    </button>
-                </form>
+            <div class="section-header">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">Estamos listos para ayudarte</p>
             </div>
-        </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section class="contact" id="contacto">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contáctanos</h3>
-                    <p>Estamos aquí para ayudarte. Contáctanos por cualquiera de estos medios:</p>
-                    <div class="contact-items">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <strong>Teléfono</strong>
-                                <p>55 1234 5678</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <strong>Email</strong>
-                                <p>contacto@pencocre.com.mx</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <strong>Dirección</strong>
-                                <p>Av. Principal 123, Ciudad de México</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <strong>Horario</strong>
-                                <p>Lunes a Viernes: 9:00 - 18:00</p>
-                            </div>
-                        </div>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-phone" style="font-size: 2rem; color: #00bcd4; margin-bottom: 10px;"></i>
+                        <p style="font-size: 1.2rem; color: #1a237e; font-weight: bold;">55 1234 5678</p>
                     </div>
-                </div>
-                <div class="social-section">
-                    <h3>Síguenos en Redes Sociales</h3>
-                    <div class="social-links">
-                        <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                    
+                    <a href="https://wa.me/525512345678" class="btn btn-primary btn-large" target="_blank" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Chatea con Nosotros
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+    <!-- FOOTER 
+    <footer style="background: #1a237e; color: white; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2024 PENCOCRE S.A.S DE C.V. Todos los derechos reservados.</p>
+        </div>
+    </footer>-->
+ <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -370,38 +366,23 @@
                 <div class="footer-section">
                     <h4>Enlaces Rápidos</h4>
                     <ul class="footer-links">
-                        <li><a href="#servicios">Servicios</a></li>
                         <li><a href="#calculadora">Calculadora</a></li>
                         <li><a href="#beneficios">Beneficios</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Términos y Condiciones</a></li>
-                        <li><a href="#">Aviso de Privacidad</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                    </ul>
-                </div>
-            </div>
+                
             <div class="footer-bottom">
                 <p>&copy; 2024 PENCOCRE S.A.S DE C.V. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-
     <!-- BOTÓN FLOTANTE DE WHATSAPP -->
     <a href="https://wa.me/525512345678" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- BOTÓN SCROLL TO TOP -->
-    <button class="scroll-top" id="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    <!-- Scripts JavaScript Externos -->
     <script src="script.js"></script>
 </body>
-
 </html>
