@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PENCOCRE - Préstamos personales rápidos y seguros. Obtén tu préstamo en minutos con las mejores tasas del mercado.">
+    <title>PENCOCRE - Préstamos Personales Rápidos y Seguros</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Estilos CSS Externos -->
+    <link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <span class="logo-text">PENCOCRE</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li class="nav-item"><a href="#calculadora" class="nav-link">Calculadora</a></li>
+                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+            <button class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-container container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-highlight">Préstamos Personales</span>
+                    Rápidos y Seguros
+                </h1>
+                <p class="hero-description">
+                    Obtén el dinero que necesitas en minutos. Sin trámites complicados, 
+                    con las mejores tasas del mercado y atención personalizada.
+                </p>
+                <p class="hero-description">
+                    La información y el trámite se realiza vía WhatsApp 
+                                    CONTACTANOS
+                </p>
+                <div class="hero-buttons">
+                    <a href="#calculadora" class="btn btn-primary btn-large">
+                        <i class="fas fa-calculator"></i> Cotizar Ahora
+                    </a>
+                    <a href="https://wa.me/525512345678" class="btn btn-secondary btn-large" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-number">5,000+</span>
+                        <span class="stat-label">Clientes Satisfechos</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <span class="stat-number">15 min</span>
+                        <span class="stat-label">Aprobación Rápida</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-percentage"></i>
+                        <span class="stat-number">Desde 9.0%</span>
+                        <span class="stat-label">Distribuido en 16 semanas</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGO DE PENCOCRE -->
+            <div class="hero-logo-container">
+                <!-- Opción 1: Logo como imagen (busca pencocre-logo.png en la carpeta) -->
+                <img src="pencocre-logo.png" 
+                     alt="PENCOCRE S.A.S DE C.V." 
+                     class="hero-logo"
+                     onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+                
+                <!-- Opción 2: Logo Fallback en CSS (se muestra si la imagen no carga) -->
+                <div id="logo-fallback" class="hero-logo-fallback" style="display: none;">
+                    <div class="logo-circles">
+                        <span class="circle circle-cyan"></span>
+                        <span class="circle circle-green"></span>
+                        <span class="circle circle-red"></span>
+                        <span class="circle circle-gray"></span>
+                        <span class="circle circle-black"></span>
+                        <span class="circle circle-navy"></span>
+                        <span class="circle circle-yellow"></span>
+                    </div>
+                    <div class="logo-text-large">
+                        <span class="logo-pcc">Pcc</span>
+                        <span class="logo-name">PENCOCRE</span>
+                        <span class="logo-subtitle">S.A.S DE C.V.</span>
+                    </div>
+                </div>
+                <!-- Script para activar el fallback inmediatamente si no hay imagen (para la demo) -->
+                <script>
+                    // Forzar fallback visualmente para la demo ya que no hay imagen real
+                    document.addEventListener("DOMContentLoaded", function() {
+                         const img = document.querySelector('.hero-logo');
+                         const fallback = document.getElementById('logo-fallback');
+                         if(img && fallback) {
+                             // Si estamos en un entorno donde la imagen seguro falla, mostramos fallback
+                             img.style.display = 'none';
+                             fallback.style.display = 'flex';
+                         }
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA DE PRÉSTAMOS -->
+    <section class="calculator" id="calculadora">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Calcula tu Préstamo</h2>
+                <p class="section-subtitle">Descubre cuánto pagarías semanalmente</p>
+            </div>
+            
+            <div class="info-box">
+                <h3 style="color: #2e7d32; margin-bottom: 15px;">📋 Condiciones del Préstamo</h3>
+                <div class="conditions-grid">
+                    <div>
+                        <strong style="color: #1b5e20;">💰 Costo:</strong><br>
+                        $90 por cada $1,000
+                    </div>
+                    <div>
+                        <strong style="color: #1b5e20;">🔒 Base:</strong><br>
+                        $100 por cada $1,000
+                    </div>
+                    <div>
+                        <strong style="color: #1b5e20;">⚠️ Mora:</strong><br>
+                        $50 por cada $1,000
+                    </div>
+                    <div>
+                        <strong style="color: #1b5e20;">📅 Plazo:</strong><br>
+                        16 semanas (4 meses)
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="amount">Monto del Préstamo</label>
+                        <input type="range" id="amount" min="5000" max="15000" step="100" value="10000">
+                        <div class="range-value">$<span id="amount-value">10,000</span> MXN</div>
+                    </div>
+                    
+                    <div class="info-note">
+                        <strong style="color: #856404;">ℹ️ Información:</strong>
+                        <p style="color: #856404; margin: 5px 0 0 0; font-size: 0.95rem;">
+                            Monto mínimo: $5,000 | Monto máximo: $15,000<br>
+                            Plazo fijo: 16 pagos semanales (4 meses)
+                        </p>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="calculate-btn" style="width: 100%;">
+                        <i class="fas fa-calculator"></i> Calcular Pagos
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="result">
+                    <div class="result-card">
+                        <h3>Resumen de tu Préstamo</h3>
+                        
+                        <div class="result-section">
+                            <h4 class="result-section-title">
+                                💰 Costos del Préstamo
+                            </h4>
+                            <div class="result-item">
+                                <span class="result-label">Monto Solicitado:</span>
+                                <span class="result-value" id="loan-amount">$10,000.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Costo del Préstamo:</span>
+                                <span class="result-value text-yellow" id="loan-cost">$900.00</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Monto de Base:</span>
+                                <span class="result-value text-teal" id="guarantee">$1,000.00</span>
+                            </div>
+                            <div class="result-item total-item">
+                                <span class="result-label"><strong>Total a Pagar:</strong></span>
+                                <span class="result-value" style="font-size: 1.8rem;" id="total-payment">$11,900.00</span>
+                            </div>
+                        </div>
+
+                        <div class="result-section" style="margin-top: 25px;">
+                            <h4 class="result-section-title">
+                                📅 Plan de Pagos
+                            </h4>
+                            <div class="result-item">
+                                <span class="result-label">Pago Semanal:</span>
+                                <span class="result-value" style="font-size: 2rem; color: #ffeb3b;" id="weekly-payment">$743.75</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Número de Pagos:</span>
+                                <span class="result-value">16 semanas</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-label">Duración Total:</span>
+                                <span class="result-value">4 meses</span>
+                            </div>
+                        </div>
+
+                        <div class="result-section warning-section">
+                            <h4 style="color: #ffeb3b; margin-bottom: 10px; font-size: 1rem;">
+                                ⚠️ En caso de mora
+                            </h4>
+                            <div class="result-item" style="border: none;">
+                                <span class="result-label">Cargo por pago atrasado:</span>
+                                <span class="result-value" id="late-fee">$500.00</span>
+                            </div>
+                        </div>
+
+                        <a href="#contacto" class="btn btn-success btn-block btn-large" style="margin-top: 25px; width: 100%; text-decoration: none;">
+                            <i class="fas fa-check-circle"></i> Solicitar este Préstamo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- BENEFICIOS -->
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">¿Por qué elegir PENCOCRE?</h2>
+                <p class="section-subtitle">Te ofrecemos las mejores condiciones del mercado</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Aprobación Rápida</h3>
+                    <p>Respuesta en 15 minutos. Sin papeleos innecesarios ni esperas largas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>100% Seguro</h3>
+                    <p>Tus datos están protegidos. Cumplimos con todas las normativas financieras.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Sin Aval</h3>
+                    <p>No necesitas aval ni garantías.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Mejores Tasas</h3>
+                    <p>Tasas competitivas del 9% por 16 semanas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>100% Digital</h3>
+                    <p>Todo el proceso desde tu celular.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Atención 24/7</h3>
+                    <p>Soporte continuo para resolver todas tus dudas cuando lo necesites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- PROCESO -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proceso Simple en 4 Pasos</h2>
+                <p class="section-subtitle">Obtén tu préstamo de manera rápida y sencilla</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon"><i class="fas fa-edit"></i></div>
+                    <h3>Solicita</h3>
+                    <p>Llena el formulario con tus datos básicos en menos de 3 minutos</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h3>Evaluamos</h3>
+                    <p>Analizamos tu solicitud y te damos respuesta en 15 minutos</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon"><i class="fas fa-file-signature"></i></div>
+                    <h3>Firma</h3>
+                    <p>Firma tu contrato de forma digital y segura</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon"><i class="fas fa-money-bill-transfer"></i></div>
+                    <h3>Recibe</h3>
+                    <p>El dinero se deposita en tu cuenta en menos de 24 horas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO SIMPLE -->
+    <section style="padding: 80px 0; background: #F5FAF9;" id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">Estamos listos para ayudarte</p>
+            </div>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 20px;">
+                        <i class="fas fa-phone" style="font-size: 2rem; color: #00bcd4; margin-bottom: 10px;"></i>
+                        <p style="font-size: 1.2rem; color: #1a237e; font-weight: bold;">55 1234 5678</p>
+                    </div>
+                    
+                    <a href="https://wa.me/525512345678" class="btn btn-primary btn-large" target="_blank" style="margin-top: 20px;">
+                        <i class="fab fa-whatsapp"></i> Chatea con Nosotros
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER 
+    <footer style="background: #1a237e; color: white; padding: 20px 0; text-align: center;">
+        <div class="container">
+            <p>&copy; 2024 PENCOCRE S.A.S DE C.V. Todos los derechos reservados.</p>
+        </div>
+    </footer>-->
+ <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>PENCOCRE S.A.S DE C.V.</h4>
+                    <p>Tu mejor opción en préstamos personales. Rápido, seguro y confiable.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#calculadora">Calculadora</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+            <div class="footer-bottom">
+                <p>&copy; 2024 PENCOCRE S.A.S DE C.V. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/525512345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts JavaScript Externos -->
+    <script src="script.js"></script>
+</body>
+</html>
